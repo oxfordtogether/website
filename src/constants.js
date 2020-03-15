@@ -4,3 +4,5 @@ export const mutualAidVolunteerForm = "https://docs.google.com/forms/d/e/1FAIpQL
 export const mutualAidFacebook = "https://www.facebook.com/groups/202604247629195";
 
 export const oxfordHubVolunteerForm = "https://docs.google.com/forms/d/e/1FAIpQLScfYSgB7G-eWo6rLZga11g5-ictGxYRq1OvHyx270dZcCLwCQ/viewform";
+
+export const newGithubIssue = "https://github.com/tomclose/covid-support-oxford/issues/new";

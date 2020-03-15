@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { GoMarkGithub as GithubIcon } from "react-icons/go"
+import { newGithubIssue } from "../../constants"
 
 import { Container } from "../global"
 
@@ -8,8 +9,8 @@ const Footer = () => (
   <FooterWrapper id="footer">
     <Container>
       <FooterNote>
-        Want to add/change something on the website? Request a change
-        on <SocialLink href='https://github.com'>Github <GithubIcon /></SocialLink>.
+        Want to add/change something on the website? <StyledLink href={newGithubIssue} target="_blank">Request a change </StyledLink>
+        on <SocialLink href={newGithubIssue} target="_blank">Github <GithubIcon /></SocialLink>.
       </FooterNote>
     </Container>
   </FooterWrapper>
@@ -25,9 +26,14 @@ const FooterNote = styled.span`
 `
 
 const SocialLink = styled.a`
-  color: ${props => props.theme.color.black}
+  color: ${props => props.theme.color.black.regular};
+  text-decoration: none;
 `
 
+const StyledLink = styled.a`
+  color: ${props => props.theme.color.accent};
+  text-decoration: none;
+`
 
 const Logo = styled.div`
   font-family: ${props => props.theme.font.extrabold};
