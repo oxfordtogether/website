@@ -4,6 +4,7 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import { Container } from "../global"
+import { mutualAidRequestForm, mutualAidVolunteerForm } from "../../constants"
 
 const Header = () => {
   const data = useStaticQuery(graphql`
@@ -35,9 +36,13 @@ const Header = () => {
             <h2>
               This site is to help people in Oxford help each other, as we handle Coronavirus.
             </h2>
-            <HeaderForm onSubmit={handleSubmit}>
-              <HeaderButton>Get support</HeaderButton>
-              <HeaderButton>I want to help</HeaderButton>
+            <HeaderForm>
+              <ButtonLink href={mutualAidRequestForm} target="_blank">
+                <HeaderButton>Get support</HeaderButton>
+              </ButtonLink>
+              <ButtonLink href={mutualAidVolunteerForm} target="_blank">
+                <HeaderButton>I want to help</HeaderButton>
+              </ButtonLink>
             </HeaderForm>
             <FormSubtitle>
               Or scroll down for other ways to get involved{" "}
@@ -73,14 +78,6 @@ const Subtitle = styled.h5`
 const HeaderTextGroup = styled.div`
   margin: 0;
 
-  > div {
-    width: 120%;
-    margin-bottom: -4.5%;
-
-    @media (max-width: ${props => props.theme.screen.md}) {
-      margin: 0 16px;
-    }
-  }
 
   h1 {
     margin: 0 0 24px;
@@ -108,10 +105,11 @@ const Flex = styled.div`
   }
 `
 
-const HeaderForm = styled.form`
+const HeaderForm = styled.div`
   display: flex;
   flex-direction: row;
   padding-bottom: 16px;
+  margin-bottom: 16px;
 
   @media (max-width: ${props => props.theme.screen.sm}) {
     flex-direction: column;
@@ -128,6 +126,10 @@ const FormSubtitleLink = styled(Link)`
   margin-left: 8px;
   text-decoration: none;
   border-bottom: 1px solid ${props => props.theme.color.secondary};
+`
+
+const ButtonLink = styled.a`
+  text-decoration: none;
 `
 
 const HeaderInput = styled.input`
@@ -167,6 +169,7 @@ const HeaderButton = styled.button`
   margin-left: 8px;
   margin-bottom: 8px;
   text-transform: uppercase;
+  text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
   background: ${props => props.theme.color.secondary};
