@@ -4,21 +4,17 @@ import styled from "styled-components"
 import { Container, Section } from "../global"
 
 const GetStarted = () => (
-  <StyledSection>
+  <Section>
     <GetStartedContainer>
       <GetStartedTitle>Be the first to get the beta</GetStartedTitle>
       <TryItButton>Get early access</TryItButton>
       <Subtitle>No credit card required.</Subtitle>
     </GetStartedContainer>
-  </StyledSection>
+  </Section>
 )
 
 export default GetStarted
 
-const StyledSection = styled(Section)`
-  background-color: ${props => props.theme.color.background.light};
-  clip-path: polygon(0 0, 100% 14%, 100% 100%, 0% 100%);
-`
 
 const GetStartedContainer = styled(Container)`
   display: flex;

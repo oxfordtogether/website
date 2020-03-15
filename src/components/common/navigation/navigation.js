@@ -15,7 +15,9 @@ import {
   ActionsContainer,
 } from "./style"
 
-const NAV_ITEMS = ["Features", "Product", "Pricing", ""]
+const NAV_ITEMS = [
+  {title: 'Get involved', sectionId: "get-involved"}
+]
 
 export default class Navigation extends Component {
   state = {
@@ -48,21 +50,21 @@ export default class Navigation extends Component {
   }
 
   getNavAnchorLink = item => (
-    <AnchorLink href={`#${item.toLowerCase()}`} onClick={this.closeMobileMenu}>
-      {item}
+    <AnchorLink href={`#${item.sectionId}`} onClick={this.closeMobileMenu}>
+      {item.title}
     </AnchorLink>
   )
 
   getNavList = ({ mobile = false }) => (
     <NavListWrapper mobile={mobile}>
       <Scrollspy
-        items={NAV_ITEMS.map(item => item.toLowerCase())}
+        items={NAV_ITEMS.map(x => x.title)}
         currentClassName="active"
         mobile={mobile}
         offset={-64}
       >
         {NAV_ITEMS.map(navItem => (
-          <NavItem key={navItem}>{this.getNavAnchorLink(navItem)}</NavItem>
+          <NavItem key={navItem.sectionId}>{this.getNavAnchorLink(navItem)}</NavItem>
         ))}
       </Scrollspy>
     </NavListWrapper>
@@ -77,26 +79,26 @@ export default class Navigation extends Component {
           <Brand>
             <Scrollspy offset={-64} item={["top"]} currentClassName="active">
               <AnchorLink href="#top" onClick={this.closeMobileMenu}>
-                Finance
+                Covid Support Oxford
               </AnchorLink>
             </Scrollspy>
           </Brand>
-          <Mobile>
-            <button
-              onClick={this.toggleMobileMenu}
-              style={{ color: "black", background: "none" }}
-            >
-              {this.state.mobileMenuOpen ? (
-                <X size={24} alt="close menu" />
-              ) : (
-                <Menu size={24} alt="open menu" />
-              )}
-            </button>
-          </Mobile>
 
-          <Mobile hide>{this.getNavList({})}</Mobile>
+            <Mobile>
+              <button
+                onClick={this.toggleMobileMenu}
+                style={{ color: "black", background: "none" }}
+              >
+                {this.state.mobileMenuOpen ? (
+                  <X size={24} alt="close menu" />
+                ) : (
+                  <Menu size={24} alt="open menu" />
+                )}
+              </button>
+            </Mobile>
           <ActionsContainer>
-            <button>Sign up</button>
+
+            <Mobile hide>{this.getNavList({})}</Mobile>
           </ActionsContainer>
         </StyledContainer>
         <Mobile>

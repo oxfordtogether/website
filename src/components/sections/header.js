@@ -8,9 +8,9 @@ import { Container } from "../global"
 const Header = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(sourceInstanceName: { eq: "product" }, name: { eq: "green-skew" }) {
+      file(sourceInstanceName: { eq: "product" }, name: { eq: "n878549" }) {
         childImageSharp {
-          fluid(maxWidth: 1000) {
+          fluid(maxWidth: 800) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
@@ -27,27 +27,23 @@ const Header = () => {
       <Container>
         <Flex>
           <HeaderTextGroup>
-            <Subtitle>Personal Finance</Subtitle>
+            <Subtitle>Oxford Coronavirus Community Support</Subtitle>
             <h1>
-              All your money,
+              Let's support each other!
               <br />
-              one account
             </h1>
             <h2>
-              We're building next generation personal finance tools. Sign up to
-              get early access.
+              This site is to help people in Oxford help each other, as we handle Coronavirus.
             </h2>
             <HeaderForm onSubmit={handleSubmit}>
-              <HeaderInput placeholder="Your email" />
-              <HeaderButton>Early access</HeaderButton>
+              <HeaderButton>Get support</HeaderButton>
+              <HeaderButton>I want to help</HeaderButton>
             </HeaderForm>
             <FormSubtitle>
-              Already have a beta account?{" "}
-              <FormSubtitleLink to="/">Sign in</FormSubtitleLink>
+              Or scroll down for other ways to get involved{" "}
             </FormSubtitle>
           </HeaderTextGroup>
           <ImageWrapper>
-            <StyledImage fluid={data.file.childImageSharp.fluid} />
             <br />
           </ImageWrapper>
         </Flex>
@@ -64,6 +60,7 @@ const HeaderWrapper = styled.header`
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
   @media (max-width: ${props => props.theme.screen.md}) {
+    padding: 80px 0 40px 0;
   }
 `
 const Subtitle = styled.h5`
@@ -168,6 +165,7 @@ const HeaderButton = styled.button`
   height: 60px;
   display: block;
   margin-left: 8px;
+  margin-bottom: 8px;
   text-transform: uppercase;
   cursor: pointer;
   white-space: nowrap;
