@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 
+import { OutboundLink } from "gatsby-plugin-google-analytics"
+
 import { Section, Container } from "../global"
 import { mutualAidFacebook, oxfordHubVolunteerForm } from "../../constants"
 
@@ -58,7 +60,7 @@ const FeaturesGrid = styled.div`
   }
 `
 
-const FeatureItem = styled.a`
+const FeatureItem = styled(OutboundLink)`
   display: flex;
   justify-content: center;
   align-items: center;

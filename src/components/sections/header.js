@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import { Container } from "../global"
 import { mutualAidRequestForm, mutualAidVolunteerForm } from "../../constants"
@@ -128,7 +129,7 @@ const FormSubtitleLink = styled(Link)`
   border-bottom: 1px solid ${props => props.theme.color.secondary};
 `
 
-const ButtonLink = styled.a`
+const ButtonLink = styled(OutboundLink)`
   text-decoration: none;
 `
 
