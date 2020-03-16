@@ -6,15 +6,20 @@
 
 This site is built with [Gatsby](https://www.gatsbyjs.org/)
 
-install dependencies: 
+install dependencies:
+
 ```sh
 yarn install
 ```
+
 ---
+
 start the development server:
+
 ```sh
-gatsby develop
+yarn run develop
 ```
+
 ---
 
 ### Deploying to Netlify
