@@ -10,7 +10,7 @@ import Footer from "../components/sections/footer"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Covid Support" />
     <Navigation />
     <Header />
     <GetInvolved />
