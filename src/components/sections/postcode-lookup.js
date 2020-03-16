@@ -22,6 +22,8 @@ const PostcodeLookup = () => {
   )
 }
 
+export default PostcodeLookup
+
 const HeaderForm = styled.div`
   display: flex;
   flex-direction: row;
