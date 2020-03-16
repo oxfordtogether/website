@@ -23,11 +23,15 @@ const PostcodeLookup = () => {
   const [inputValue, setInputValue] = React.useState("")
   const [postcode, setPostcode] = React.useState(null)
 
+  const formatString = s => {
+    return s.replace(/\s+/g, "").toLowerCase()
+  }
+
   const renderWard = () => {
     if (!postcode) return null
 
     const match = data.allOxfordPostcodeToWardCsv.nodes.find(
-      n => n.postcode === postcode
+      n => formatString(n.postcode) === formatString(postcode)
     )
 
     if (!match) return <div>Unable to find a match</div>
