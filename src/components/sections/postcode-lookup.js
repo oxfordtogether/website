@@ -1,6 +1,12 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { HeaderForm, HeaderInput, HeaderButton } from "../helpers/header"
+import {
+  HeaderTextGroup,
+  HeaderForm,
+  HeaderInput,
+  HeaderButton,
+  FormSubtitle,
+} from "../helpers/header"
 
 const PostcodeLookup = () => {
   const data = useStaticQuery(graphql`
@@ -39,16 +45,18 @@ const PostcodeLookup = () => {
   }
 
   return (
-    <HeaderForm>
-      <HeaderInput
-        type="text"
-        defaultValue={inputValue}
-        placeholder="Your postcode"
-        onChange={handleChange}
-      />
-      <HeaderButton onClick={handleClick}>Search</HeaderButton>
-      {renderWard()}
-    </HeaderForm>
+    <HeaderTextGroup>
+      <HeaderForm>
+        <HeaderInput
+          type="text"
+          defaultValue={inputValue}
+          placeholder="Your postcode"
+          onChange={handleChange}
+        />
+        <HeaderButton onClick={handleClick}>Search</HeaderButton>
+      </HeaderForm>
+      <FormSubtitle>{renderWard()}</FormSubtitle>
+    </HeaderTextGroup>
   )
 }
 
