@@ -21,12 +21,11 @@ const Header = () => {
           <HeaderTextGroup>
             <Subtitle>Oxford Coronavirus Community Support</Subtitle>
             <h1>
-              Let's support each other!
+              Get support. Give support.
               <br />
             </h1>
             <h2>
-              This site is to help people in Oxford help each other, as we
-              handle Coronavirus.
+              On this site you can discover and access all of the community support efforts across Oxford.
             </h2>
             <HeaderForm>
               <ButtonLink href={oxfordHubPracticalSupportForm} target="_blank">
