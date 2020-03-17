@@ -4,6 +4,11 @@ import styled from "styled-components"
 import { oxfordHubPhoneSupportForm } from "../../constants"
 import { Section, Container } from "../global"
 
+import {
+  ButtonLink,
+  HeaderButton,
+} from "../helpers/header"
+
 const Features = () => (
   <Section id="intro">
     <StyledContainer>
@@ -31,9 +36,13 @@ const Features = () => (
         <a href="mailto:hello@oxfordtogether.org">hello@oxfordtogether.org</a>.
       </p>
 
-      <ButtonLink href={oxfordHubPhoneSupportForm} target="_blank">
-          <HeaderButton>Get support</HeaderButton>
-      </ButtonLink>
+      <FeaturesGrid>
+        <FeatureItem>
+          <ButtonLink href={oxfordHubPhoneSupportForm} target="_blank">
+            <HeaderButton>Register for phone check-ins</HeaderButton>
+          </ButtonLink>
+        </FeatureItem>
+      </FeaturesGrid>
     </StyledContainer>
   </Section>
 )
@@ -61,8 +70,8 @@ const Subtitle = styled.h5`
 const FeaturesGrid = styled.div`
   max-width: 670px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 0px auto;
+  grid-template-columns: 1fr ;
+  margin: 100px auto 0px auto;
   grid-column-gap: 40px;
   grid-row-gap: 35px;
   @media (max-width: ${props => props.theme.screen.sm}) {
