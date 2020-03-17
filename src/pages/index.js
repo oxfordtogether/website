@@ -6,13 +6,15 @@ import Navigation from "../components/common/navigation/navigation"
 
 import Header from "../components/sections/header"
 import GetInvolved from "../components/sections/get-involved"
+import Intro from "../components/sections/intro"
 import Footer from "../components/sections/footer"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Covid Support" />
+    <SEO title="Oxford Together" />
     <Navigation />
     <Header />
+    <Intro />
     <GetInvolved />
     <Footer />
   </Layout>

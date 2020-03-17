@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Oxford Coronavirus Support`,
+    title: `Oxford Together`,
     description: `Connecting those in need to those who can help`,
-    author: `Oxford Support Network`
+    author: `Oxford Support Network`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

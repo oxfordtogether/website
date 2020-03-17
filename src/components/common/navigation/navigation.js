@@ -16,7 +16,8 @@ import {
 } from "./style"
 
 const NAV_ITEMS = [
-  {title: 'Get involved', sectionId: "get-involved"}
+  { title: "About", sectionId: "intro" },
+  { title: "Get involved", sectionId: "get-involved" },
 ]
 
 export default class Navigation extends Component {
@@ -64,7 +65,9 @@ export default class Navigation extends Component {
         offset={-64}
       >
         {NAV_ITEMS.map(navItem => (
-          <NavItem key={navItem.sectionId}>{this.getNavAnchorLink(navItem)}</NavItem>
+          <NavItem key={navItem.sectionId}>
+            {this.getNavAnchorLink(navItem)}
+          </NavItem>
         ))}
       </Scrollspy>
     </NavListWrapper>
@@ -79,25 +82,24 @@ export default class Navigation extends Component {
           <Brand>
             <Scrollspy offset={-64} item={["top"]} currentClassName="active">
               <AnchorLink href="#top" onClick={this.closeMobileMenu}>
-                Covid Support Oxford
+                Oxford Together
               </AnchorLink>
             </Scrollspy>
           </Brand>
 
-            <Mobile>
-              <button
-                onClick={this.toggleMobileMenu}
-                style={{ color: "black", background: "none" }}
-              >
-                {this.state.mobileMenuOpen ? (
-                  <X size={24} alt="close menu" />
-                ) : (
-                  <Menu size={24} alt="open menu" />
-                )}
-              </button>
-            </Mobile>
+          <Mobile>
+            <button
+              onClick={this.toggleMobileMenu}
+              style={{ color: "black", background: "none" }}
+            >
+              {this.state.mobileMenuOpen ? (
+                <X size={24} alt="close menu" />
+              ) : (
+                <Menu size={24} alt="open menu" />
+              )}
+            </button>
+          </Mobile>
           <ActionsContainer>
-
             <Mobile hide>{this.getNavList({})}</Mobile>
           </ActionsContainer>
         </StyledContainer>
