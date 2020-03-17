@@ -32,7 +32,7 @@ const Header = () => {
                 <HeaderButton>Get support</HeaderButton>
               </ButtonLink>
               <ButtonLink href={oxfordHubVolunteerForm} target="_blank">
-                <HeaderButton>Volunteer</HeaderButton>
+                <HeaderButton>Give support</HeaderButton>
               </ButtonLink>
             </HeaderForm>
             <FormSubtitle>
