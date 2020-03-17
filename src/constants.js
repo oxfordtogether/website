@@ -8,3 +8,7 @@ export const oxfordHubVolunteerForm = "https://docs.google.com/forms/d/e/1FAIpQL
 export const newGithubIssue = "https://github.com/tomclose/covid-support-oxford/issues/new";
 
 export const oxfordHubPhoneSupportForm = "https://docs.google.com/forms/d/e/1FAIpQLScrnON6LlkJvxoB9O2Mq-OnK_Wp7iV0GW2JYUZ7hv_hSHrMbQ/viewform";
+
+export const oxfordHubCommunityPartnersForm = "https://docs.google.com/forms/d/1crUT-En_d6e2ciKG3B1AEB3MiMD0u1mVQQFbU04eJ5U/viewform";
+
+export const oxfordHubPracticalSupportForm = "https://docs.google.com/forms/d/e/1FAIpQLSdR_Rot_eDoRpWgWUSe8xDUEY6uNf-3rHoqURCQfYxC4Kztmg/viewform"

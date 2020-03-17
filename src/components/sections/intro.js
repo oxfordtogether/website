@@ -42,6 +42,11 @@ const Features = () => (
             <HeaderButton>Register for phone check-ins</HeaderButton>
           </ButtonLink>
         </FeatureItem>
+        <FeatureItem>
+          <ButtonLink href={oxfordHubPhoneSupportForm} target="_blank">
+            <HeaderButton>Get practical support</HeaderButton>
+          </ButtonLink>
+        </FeatureItem>
       </FeaturesGrid>
     </StyledContainer>
   </Section>
@@ -70,7 +75,7 @@ const Subtitle = styled.h5`
 const FeaturesGrid = styled.div`
   max-width: 670px;
   display: grid;
-  grid-template-columns: 1fr ;
+  grid-template-columns: 1fr 1fr;
   margin: 100px auto 0px auto;
   grid-column-gap: 40px;
   grid-row-gap: 35px;
