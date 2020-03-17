@@ -6,7 +6,7 @@ import { Section, Container } from "../global"
 const Features = () => (
   <Section id="intro">
     <StyledContainer>
-      <Subtitle>About</Subtitle>
+      <Subtitle>Oxford Together</Subtitle>
       <SectionTitle>A Community Response to Covid</SectionTitle>
       <p>
         Oxford Hub is launching a new programme to build a community response to
