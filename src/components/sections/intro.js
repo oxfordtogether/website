@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
+import { oxfordHubPhoneSupportForm } from "../../constants"
 import { Section, Container } from "../global"
 
 const Features = () => (
@@ -25,10 +26,14 @@ const Features = () => (
       </p>
       <p>
         If you're self-isolating or at high risk, you can refer yourself to get
-        community support via the "get support" button (coming soon). For any
+        community support (coming soon), or <a href={oxfordHubPhoneSupportForm}>sign up for regular phone check-ins</a>. For any
         questions, please email{" "}
         <a href="mailto:hello@oxfordtogether.org">hello@oxfordtogether.org</a>.
       </p>
+
+      <ButtonLink href={oxfordHubPhoneSupportForm} target="_blank">
+          <HeaderButton>Get support</HeaderButton>
+      </ButtonLink>
     </StyledContainer>
   </Section>
 )

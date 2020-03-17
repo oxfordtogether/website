@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import { Container } from "../global"
-import { mutualAidRequestForm, oxfordHubVolunteerForm } from "../../constants"
+import { oxfordHubPhoneSupportForm, oxfordHubVolunteerForm } from "../../constants"
 
 const Header = () => {
   const data = useStaticQuery(graphql`
@@ -38,8 +38,8 @@ const Header = () => {
               This site is to help people in Oxford help each other, as we handle Coronavirus.
             </h2>
             <HeaderForm>
-              <ButtonLink target="_blank">
-                <HeaderButton>Get support (coming soon)</HeaderButton>
+              <ButtonLink href={oxfordHubPhoneSupportForm} target="_blank">
+                <HeaderButton>Get support</HeaderButton>
               </ButtonLink>
               <ButtonLink href={oxfordHubVolunteerForm} target="_blank">
                 <HeaderButton>Volunteer</HeaderButton>
