@@ -12,13 +12,11 @@ const PostcodeLookupPage = () => (
   <Layout>
     <SEO title="Covid Support" />
     <Navigation />
-    <HeaderWrapper id="top">
-      <Container>
-        <Flex>
-          <PostcodeLookup />
-        </Flex>
-      </Container>
-    </HeaderWrapper>
+    <Container>
+      <Flex>
+        <PostcodeLookup />
+      </Flex>
+    </Container>
     <Footer />
   </Layout>
 )

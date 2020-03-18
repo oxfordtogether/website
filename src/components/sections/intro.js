@@ -5,58 +5,60 @@ import { oxfordHubPhoneSupportForm } from "../../constants"
 import { Section, Container } from "../global"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 
-import {
-  ButtonLink,
-  HeaderButton,
-} from "../helpers/header"
+import { ButtonLink, HeaderButton } from "../helpers/header"
 
 const Features = () => (
   <React.Fragment>
-  <Section id="intro">
-    <StyledContainer>
-      <Subtitle>Oxford Together</Subtitle>
-      <SectionTitle>A Community Response to Covid</SectionTitle>
-      <p>
-        Oxford Hub is launching a new programme to build a community response to
-        Covid. It’s time to get together to ensure we can provide support to the
-        most vulnerable in our communities, and make sure that we are looking
-        out for one another during this time.
-      </p>
-      <p>
-        Become a community champion and help others across the city by checking
-        in on those who are at high-risk on your street, or a phone champion
-        making phone calls to check in on those who are self-isolating.
-      </p>
-      <p>
-        Sparing just a few minutes of your day can make a huge difference to
-        someone who is at high-risk or already ill.
-      </p>
-      <p>
-        If you're self-isolating or at high risk, you can refer yourself to get
-        community support, or <AnchorLink href="#support-forms">sign up for regular phone check-ins</AnchorLink>. For any
-        questions, please email{" "}
-        <a href="mailto:hello@oxfordtogether.org">hello@oxfordtogether.org</a>.
-      </p>
-    </StyledContainer>
-  </Section>
-  <Section id="support-forms">
+    <Section id="intro">
+      <StyledContainer>
+        <Subtitle>Oxford Together</Subtitle>
+        <SectionTitle>A Community Response to Covid</SectionTitle>
+        <p>
+          Oxford Hub is launching a new programme to build a community response
+          to Covid. It’s time to get together to ensure we can provide support
+          to the most vulnerable in our communities, and make sure that we are
+          looking out for one another during this time.
+        </p>
+        <p>
+          Become a community champion and help others across the city by
+          checking in on those who are at high-risk on your street, or a phone
+          champion making phone calls to check in on those who are
+          self-isolating.
+        </p>
+        <p>
+          Sparing just a few minutes of your day can make a huge difference to
+          someone who is at high-risk or already ill.
+        </p>
+        <p>
+          If you're self-isolating or at high risk, you can refer yourself to
+          get community support, or{" "}
+          <AnchorLink href="#support-forms">
+            sign up for regular phone check-ins
+          </AnchorLink>
+          . For any questions, please email{" "}
+          <a href="mailto:hello@oxfordtogether.org">hello@oxfordtogether.org</a>
+          .
+        </p>
+      </StyledContainer>
+    </Section>
+    <Section id="support-forms">
       <Subtitle>Get Support</Subtitle>
       <SectionTitle>Sign up for Support</SectionTitle>
-    <StyledContainer>
-      <FeaturesGrid id="support-forms">
-        <FeatureItem>
-          <ButtonLink href={oxfordHubPhoneSupportForm} target="_blank">
-            <HeaderButton>Register for phone check-ins</HeaderButton>
-          </ButtonLink>
-        </FeatureItem>
-        <FeatureItem>
-          <ButtonLink href={oxfordHubPhoneSupportForm} target="_blank">
-            <HeaderButton>Get practical support</HeaderButton>
-          </ButtonLink>
-        </FeatureItem>
-      </FeaturesGrid>
-    </StyledContainer>
-  </Section>
+      <StyledContainer>
+        <FeaturesGrid id="support-forms">
+          <FeatureItem>
+            <ButtonLink href={oxfordHubPhoneSupportForm} target="_blank">
+              <HeaderButton>Register for phone check-ins</HeaderButton>
+            </ButtonLink>
+          </FeatureItem>
+          <FeatureItem>
+            <ButtonLink href={oxfordHubPhoneSupportForm} target="_blank">
+              <HeaderButton>Get practical support</HeaderButton>
+            </ButtonLink>
+          </FeatureItem>
+        </FeaturesGrid>
+      </StyledContainer>
+    </Section>
   </React.Fragment>
 )
 
