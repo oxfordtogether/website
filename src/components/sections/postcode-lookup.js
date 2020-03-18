@@ -44,7 +44,6 @@ const PostcodeLookup = () => {
     setPostcode(inputValue)
 
     if (!inputValue) return
-    console.log(inputValue)
     const formatted = formatString(inputValue)
     const match = data.allNeighbourhoodsWithPostcodesCsv.nodes.find(n =>
       n.Postcodes.includes(formatted)
