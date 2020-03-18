@@ -1,6 +1,6 @@
 import React from "react"
 import { Container } from "../global"
-import { oxfordHubPracticalSupportForm, oxfordHubVolunteerForm } from "../../constants"
+import { oxfordHubVolunteerForm } from "../../constants"
 import {
   HeaderWrapper,
   Flex,
@@ -12,6 +12,7 @@ import {
   FormSubtitle,
   ImageWrapper,
 } from "../helpers/header"
+import AnchorLink from "react-anchor-link-smooth-scroll"
 
 const Header = () => {
   return (
@@ -28,9 +29,9 @@ const Header = () => {
               On this site you can discover and access all of the community support efforts across Oxford.
             </h2>
             <HeaderForm>
-              <ButtonLink href={oxfordHubPracticalSupportForm} target="_blank">
+              <AnchorLink href="#support-forms"  target="_blank" style={{textDecoration: 'none'}}>
                 <HeaderButton>Get support</HeaderButton>
-              </ButtonLink>
+              </AnchorLink>
               <ButtonLink href={oxfordHubVolunteerForm} target="_blank">
                 <HeaderButton>Give support</HeaderButton>
               </ButtonLink>

@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import { oxfordHubPhoneSupportForm } from "../../constants"
 import { Section, Container } from "../global"
+import AnchorLink from "react-anchor-link-smooth-scroll"
 
 import {
   ButtonLink,
@@ -10,6 +11,7 @@ import {
 } from "../helpers/header"
 
 const Features = () => (
+  <React.Fragment>
   <Section id="intro">
     <StyledContainer>
       <Subtitle>Oxford Together</Subtitle>
@@ -31,12 +33,17 @@ const Features = () => (
       </p>
       <p>
         If you're self-isolating or at high risk, you can refer yourself to get
-        community support (coming soon), or <a href={oxfordHubPhoneSupportForm}>sign up for regular phone check-ins</a>. For any
+        community support, or <AnchorLink href="#support-forms">sign up for regular phone check-ins</AnchorLink>. For any
         questions, please email{" "}
         <a href="mailto:hello@oxfordtogether.org">hello@oxfordtogether.org</a>.
       </p>
-
-      <FeaturesGrid>
+    </StyledContainer>
+  </Section>
+  <Section id="support-forms">
+      <Subtitle>Get Support</Subtitle>
+      <SectionTitle>Sign up for Support</SectionTitle>
+    <StyledContainer>
+      <FeaturesGrid id="support-forms">
         <FeatureItem>
           <ButtonLink href={oxfordHubPhoneSupportForm} target="_blank">
             <HeaderButton>Register for phone check-ins</HeaderButton>
@@ -50,6 +57,7 @@ const Features = () => (
       </FeaturesGrid>
     </StyledContainer>
   </Section>
+  </React.Fragment>
 )
 
 export default Features
