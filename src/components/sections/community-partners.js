@@ -1,13 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 
-import { oxfordHubPhoneSupportForm, oxfordHubCommunityPartnersForm } from "../../constants"
+import {
+  oxfordHubPhoneSupportForm,
+  oxfordHubCommunityPartnersForm,
+  mutualAidFacebook,
+} from "../../constants"
 import { Section, Container } from "../global"
 
-import {
-  ButtonLink,
-  HeaderButton,
-} from "../helpers/header"
+import { ButtonLink, HeaderButton } from "../helpers/header"
 
 const Features = () => (
   <Section id="intro">
@@ -15,9 +16,16 @@ const Features = () => (
       <Subtitle>Community Partners</Subtitle>
       <SectionTitle>Let's coordinate!</SectionTitle>
       <p>
-        Are you an organisation or charity in the Oxford area?
-        How are you approaching coronavirus? Share your plans with us
-        so that we can coordinate better!
+        Oxford Together is coordinated by the{" "}
+        <a href="https://oxfordhub.org">Oxford Hub</a>, working in collaboration
+        with many local groups, including the City Council,{" "}
+        <a href={mutualAidFacebook}>Oxford Mutual Aid</a>, the Oxford Labour
+        Party, and the Oxford Code Lab.
+      </p>
+      <p>
+        Are you an organisation or charity in the Oxford area? How are you
+        approaching coronavirus? Share your plans with us so that we can
+        coordinate better!
       </p>
 
       <FeaturesGrid>
@@ -54,7 +62,7 @@ const Subtitle = styled.h5`
 const FeaturesGrid = styled.div`
   max-width: 670px;
   display: grid;
-  grid-template-columns: 1fr ;
+  grid-template-columns: 1fr;
   margin: 100px auto 0px auto;
   grid-column-gap: 40px;
   grid-row-gap: 35px;

@@ -14,7 +14,7 @@ const Features = () => (
         <Subtitle>Oxford Together</Subtitle>
         <SectionTitle>A Community Response to Covid</SectionTitle>
         <p>
-          Oxford Hub is launching a new programme to build a community response
+          Oxford Together is a new collaboration to build a community response
           to Covid. It’s time to get together to ensure we can provide support
           to the most vulnerable in our communities, and make sure that we are
           looking out for one another during this time.
