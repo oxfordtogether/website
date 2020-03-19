@@ -1,7 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 
-import { oxfordHubPhoneSupportForm } from "../../constants"
+import {
+  oxfordHubPhoneSupportForm,
+  oxfordHubPracticalSupportForm,
+} from "../../constants"
 import { Section, Container } from "../global"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 
@@ -52,7 +55,7 @@ const Features = () => (
             </ButtonLink>
           </FeatureItem>
           <FeatureItem>
-            <ButtonLink href={oxfordHubPhoneSupportForm} target="_blank">
+            <ButtonLink href={oxfordHubPracticalSupportForm} target="_blank">
               <HeaderButton>Get practical support</HeaderButton>
             </ButtonLink>
           </FeatureItem>
