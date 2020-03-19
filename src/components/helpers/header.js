@@ -49,7 +49,18 @@ export const Flex = styled.div`
   }
 `
 
-export const HeaderForm = styled.div`
+export const HeaderFormDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    flex-direction: column;
+  }
+`
+
+export const HeaderForm = styled.form`
   display: flex;
   flex-direction: row;
   padding-bottom: 16px;

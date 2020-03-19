@@ -6,7 +6,7 @@ import {
   Flex,
   HeaderTextGroup,
   Subtitle,
-  HeaderForm,
+  HeaderFormDiv,
   ButtonLink,
   HeaderButton,
   FormSubtitle,
@@ -26,16 +26,21 @@ const Header = () => {
               <br />
             </h1>
             <h2>
-              On this site you can discover and access all of the community support efforts across Oxford.
+              On this site you can discover and access all of the community
+              support efforts across Oxford.
             </h2>
-            <HeaderForm>
-              <AnchorLink href="#support-forms"  target="_blank" style={{textDecoration: 'none'}}>
+            <HeaderFormDiv>
+              <AnchorLink
+                href="#support-forms"
+                target="_blank"
+                style={{ textDecoration: "none" }}
+              >
                 <HeaderButton>Get support</HeaderButton>
               </AnchorLink>
               <ButtonLink href={oxfordHubVolunteerForm} target="_blank">
                 <HeaderButton>Give support</HeaderButton>
               </ButtonLink>
-            </HeaderForm>
+            </HeaderFormDiv>
             <FormSubtitle>
               Or scroll down for other ways to get involved{" "}
             </FormSubtitle>

@@ -57,7 +57,7 @@ const PostcodeLookup = () => {
         <StyledContainer>
           <h1>Find your neighbourhood contact</h1>
 
-          <HeaderForm>
+          <HeaderForm onSubmit={handleClick}>
             <HeaderInput
               type="text"
               defaultValue={inputValue}
