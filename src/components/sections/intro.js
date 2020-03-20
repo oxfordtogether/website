@@ -60,6 +60,13 @@ const Features = () => (
             </ButtonLink>
           </FeatureItem>
         </FeaturesGrid>
+        <FeatureTextWrapper>
+          <FeatureText>
+            If you would like to request support over the phone rather than on
+            an online form then please ring 07957 105129 between 9am-5pm
+            Monday-Friday
+          </FeatureText>
+        </FeatureTextWrapper>
       </StyledContainer>
     </Section>
   </React.Fragment>
@@ -110,6 +117,13 @@ const FeatureTitle = styled.h4`
   letter-spacing: 0px;
   line-height: 30px;
   margin-bottom: 10px;
+`
+
+const FeatureTextWrapper = styled.div`
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 620px;
 `
 
 const FeatureText = styled.p`

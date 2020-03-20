@@ -3,6 +3,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll"
 import Scrollspy from "react-scrollspy"
 import { Menu, X } from "react-feather"
 
+import { Link } from "gatsby"
 import { Container } from "../../global"
 import {
   Nav,
@@ -81,9 +82,7 @@ export default class Navigation extends Component {
         <StyledContainer>
           <Brand>
             <Scrollspy offset={-64} item={["top"]} currentClassName="active">
-              <AnchorLink href="#top" onClick={this.closeMobileMenu}>
-                Oxford Together
-              </AnchorLink>
+              <Link to="/">Oxford Together</Link>
             </Scrollspy>
           </Brand>
 
