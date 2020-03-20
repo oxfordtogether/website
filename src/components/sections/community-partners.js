@@ -15,19 +15,20 @@ const Features = () => (
     <StyledContainer>
       <Subtitle>Community Partners</Subtitle>
       <SectionTitle>Let's coordinate!</SectionTitle>
-      <p>
-        Oxford Together is coordinated by the{" "}
-        <a href="https://oxfordhub.org">Oxford Hub</a>, working in collaboration
-        with many local groups, including the City Council,{" "}
-        <a href={mutualAidFacebook}>Oxford Mutual Aid</a>, the Oxford Labour
-        Party, and the Oxford Code Lab.
-      </p>
-      <p>
-        Are you an organisation or charity in the Oxford area? How are you
-        approaching coronavirus? Share your plans with us so that we can
-        coordinate better!
-      </p>
-
+      <JustifiedTextWrapper>
+        <p>
+          Oxford Together is coordinated by the{" "}
+          <a href="https://oxfordhub.org">Oxford Hub</a>, working in
+          collaboration with many local groups, including the City Council,{" "}
+          <a href={mutualAidFacebook}>Oxford Mutual Aid</a>, the Oxford Labour
+          Party, and the Oxford Code Lab.
+        </p>
+        <p>
+          Are you an organisation or charity in the Oxford area? How are you
+          approaching coronavirus? Share your plans with us so that we can
+          coordinate better!
+        </p>
+      </JustifiedTextWrapper>
       <FeaturesGrid>
         <FeatureItem>
           <ButtonLink href={oxfordHubCommunityPartnersForm} target="_blank">
@@ -88,4 +89,15 @@ const FeatureTitle = styled.h4`
 
 const FeatureText = styled.p`
   text-align: center;
+`
+
+const FeatureTextWrapper = styled.div`
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 620px;
+`
+
+const JustifiedTextWrapper = styled(FeatureTextWrapper)`
+  text-align: justify;
 `

@@ -16,32 +16,34 @@ const Features = () => (
       <StyledContainer>
         <Subtitle>Oxford Together</Subtitle>
         <SectionTitle>A Community Response to Covid</SectionTitle>
-        <p>
-          Oxford Together is a new collaboration to build a community response
-          to Covid. It’s time to get together to ensure we can provide support
-          to the most vulnerable in our communities, and make sure that we are
-          looking out for one another during this time.
-        </p>
-        <p>
-          Become a community champion and help others across the city by
-          checking in on those who are at high-risk on your street, or a phone
-          champion making phone calls to check in on those who are
-          self-isolating.
-        </p>
-        <p>
-          Sparing just a few minutes of your day can make a huge difference to
-          someone who is at high-risk or already ill.
-        </p>
-        <p>
-          If you're self-isolating or at high risk, you can refer yourself to
-          get community support, or{" "}
-          <AnchorLink href="#support-forms">
-            sign up for regular phone check-ins
-          </AnchorLink>
-          . For any questions, please email{" "}
-          <a href="mailto:hello@oxfordtogether.org">hello@oxfordtogether.org</a>
-          .
-        </p>
+        <JustifiedTextWrapper>
+          <p>
+            Oxford Together is a community-led response to Covid-19 coordinated
+            by Oxford Hub.
+          </p>
+          <p>
+            We are working with communities and local services to provide four
+            key functions to support those who are at high-risk or currently
+            self-isolating:
+          </p>
+          <ul>
+            <li>
+              Street champion recruiting and training, empowering local people
+              to coordinate support on their street.
+            </li>
+            <li>Daily phone check-ins for isolated people.</li>
+            <li>Practical support, such as shopping.</li>
+            <li>Food distribution across Oxford.</li>
+          </ul>
+          <p>
+            Our volunteers receive briefings and background checks if they are
+            coming in contact with vulnerable individuals.
+          </p>
+          <p>
+            Click the buttons below to sign up as a volunteer, or to receive
+            support from Oxford Together.
+          </p>
+        </JustifiedTextWrapper>
       </StyledContainer>
     </Section>
     <Section id="support-forms">
@@ -63,7 +65,7 @@ const Features = () => (
         <FeatureTextWrapper>
           <FeatureText>
             If you would like to request support over the phone rather than on
-            an online form then please ring 07957 105129 between 9am-5pm
+            an online form, then please ring 07957 105129 between 9am-5pm
             Monday-Friday
           </FeatureText>
         </FeatureTextWrapper>
@@ -124,6 +126,10 @@ const FeatureTextWrapper = styled.div`
   margin-top: 50px;
   margin-bottom: 50px;
   max-width: 620px;
+`
+
+const JustifiedTextWrapper = styled(FeatureTextWrapper)`
+  text-align: justify;
 `
 
 const FeatureText = styled.p`
