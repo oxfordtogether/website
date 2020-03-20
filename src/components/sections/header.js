@@ -12,9 +12,24 @@ import {
   FormSubtitle,
   ImageWrapper,
 } from "../helpers/header"
+import styled from "styled-components"
+import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 
 const Header = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      file(sourceInstanceName: { eq: "product" }, name: { eq: "people" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid_tracedSVG
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <HeaderWrapper id="top">
       <Container>
@@ -25,10 +40,7 @@ const Header = () => {
               Get support. Give support.
               <br />
             </h1>
-            <h2>
-              On this site you can discover and access all of the community
-              support efforts across Oxford.
-            </h2>
+            <h2>Find out how you can get involved with Oxford Together</h2>
             <HeaderFormDiv>
               <AnchorLink
                 href="#support-forms"
@@ -46,6 +58,7 @@ const Header = () => {
             </FormSubtitle>
           </HeaderTextGroup>
           <ImageWrapper>
+            <StyledImage fluid={data.file.childImageSharp.fluid} />
             <br />
           </ImageWrapper>
         </Flex>
@@ -55,3 +68,14 @@ const Header = () => {
 }
 
 export default Header
+
+const StyledImage = styled(Img)`
+  width: 500px;
+  @media (max-width: ${props => props.theme.screen.md}) {
+    width: 400px;
+  }
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    width: 300px;
+    display: none;
+  }
+`
