@@ -89,13 +89,17 @@ export default class Navigation extends Component {
           <Mobile>
             <button
               onClick={this.toggleMobileMenu}
-              style={{ color: "black", background: "none" }}
+              style={{
+                color: "black", background: "none", display: "flex",
+                alignItems: "center"
+              }}
             >
               {this.state.mobileMenuOpen ? (
                 <X size={24} alt="close menu" />
               ) : (
-                <Menu size={24} alt="open menu" />
-              )}
+                  <Menu size={24} alt="open menu" style={{ marginRight: 5 }} />
+                )}
+              <span>Menu</span>
             </button>
           </Mobile>
           <ActionsContainer>
