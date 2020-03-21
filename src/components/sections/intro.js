@@ -61,6 +61,11 @@ const Features = () => (
               <HeaderButton>Get practical support</HeaderButton>
             </ButtonLink>
           </FeatureItem>
+          <FeatureItem>
+            <ButtonLink href="./postcode-lookup" target="_blank">
+              <HeaderButton>Connect to your street champion</HeaderButton>
+            </ButtonLink>
+          </FeatureItem>
         </FeaturesGrid>
         <FeatureTextWrapper>
           <FeatureText>
@@ -97,7 +102,7 @@ const Subtitle = styled.h5`
 const FeaturesGrid = styled.div`
   max-width: 670px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   margin: 100px auto 0px auto;
   grid-column-gap: 40px;
   grid-row-gap: 35px;
