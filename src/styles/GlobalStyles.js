@@ -25,12 +25,12 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h2 {
-    ${props => props.theme.font_size.larger};
+    ${props => props.theme.font_size.xlarge};
+    font-family: ${props => props.theme.font.bold};
   }
 
   h3 {
-    ${props => props.theme.font_size.larger};
-    font-family: ${props => props.theme.font.bold};
+    ${props => props.theme.font_size.regular};
   }
 
   h4 {

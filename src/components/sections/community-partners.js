@@ -99,5 +99,5 @@ const FeatureTextWrapper = styled.div`
 `
 
 const JustifiedTextWrapper = styled(FeatureTextWrapper)`
-  text-align: justify;
+  text-align: left;
 `

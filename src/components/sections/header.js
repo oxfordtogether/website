@@ -36,11 +36,11 @@ const Header = () => {
         <Flex>
           <HeaderTextGroup>
             <Subtitle>Oxford Coronavirus Community Support</Subtitle>
-            <h1>
+            <h2>
               Get support. Give support.
               <br />
-            </h1>
-            <h2>Find out how you can get involved with Oxford Together</h2>
+            </h2>
+            <h3>Find out how you can get involved with Oxford Together</h3>
             <HeaderFormDiv>
               <AnchorLink
                 href="#support-forms"

@@ -13,7 +13,7 @@ export const HeaderWrapper = styled.header`
   }
 `
 
-export const Subtitle = styled.h5`
+export const Subtitle = styled.h1`
   font-size: 16px;
   color: ${props => props.theme.color.accent};
   letter-spacing: 0px;
@@ -30,7 +30,7 @@ export const HeaderTextGroup = styled.div`
 
   h2 {
     margin-bottom: 24px;
-    ${props => props.theme.font_size.regular}
+    ${props => props.theme.font_size.larger}
   }
 
   p {
