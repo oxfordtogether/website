@@ -10,7 +10,7 @@ const Footer = () => (
     <Container>
       <FooterNote>
         Want to add/change something on the website? <StyledLink href={newGithubIssue} target="_blank">Request a change </StyledLink>
-        on <SocialLink href={newGithubIssue} target="_blank">Github <GithubIcon /></SocialLink>.
+        on <SocialLink href="https://www.github.com" target="_blank">Github <GithubIcon /></SocialLink>.
       </FooterNote>
     </Container>
   </FooterWrapper>
