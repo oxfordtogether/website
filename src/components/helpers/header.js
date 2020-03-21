@@ -25,7 +25,6 @@ export const HeaderTextGroup = styled.div`
 
   h1 {
     margin: 0 0 24px;
-    color: ${props => props.theme.color.primary};
   }
 
   h2 {
