@@ -47,10 +47,10 @@ const Header = () => {
                 target="_blank"
                 style={{ textDecoration: "none" }}
               >
-                <HeaderButton>Get support</HeaderButton>
+                <HeaderButton tabIndex="-1">Get support</HeaderButton>
               </AnchorLink>
               <ButtonLink href={oxfordHubVolunteerForm} target="_blank">
-                <HeaderButton>Give support</HeaderButton>
+                <HeaderButton tabIndex="-1">Give support</HeaderButton>
               </ButtonLink>
             </HeaderFormDiv>
             <FormSubtitle>

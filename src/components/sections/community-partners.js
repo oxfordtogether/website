@@ -32,7 +32,7 @@ const Features = () => (
       <FeaturesGrid>
         <FeatureItem>
           <ButtonLink href={oxfordHubCommunityPartnersForm} target="_blank">
-            <HeaderButton>Connect your organisation</HeaderButton>
+            <HeaderButton tabIndex="-1">Connect your organisation</HeaderButton>
           </ButtonLink>
         </FeatureItem>
       </FeaturesGrid>

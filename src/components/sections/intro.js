@@ -53,12 +53,12 @@ const Features = () => (
         <FeaturesGrid id="support-forms">
           <FeatureItem>
             <ButtonLink href={oxfordHubPhoneSupportForm} target="_blank">
-              <HeaderButton>Register for phone check-ins</HeaderButton>
+              <HeaderButton tabIndex="-1">Register for phone check-ins</HeaderButton>
             </ButtonLink>
           </FeatureItem>
           <FeatureItem>
             <ButtonLink href={oxfordHubPracticalSupportForm} target="_blank">
-              <HeaderButton>Get practical support</HeaderButton>
+              <HeaderButton tabIndex="-1">Get practical support</HeaderButton>
             </ButtonLink>
           </FeatureItem>
         </FeaturesGrid>
