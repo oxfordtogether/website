@@ -53,12 +53,12 @@ const Features = () => (
         <FeaturesGrid id="support-forms">
           <FeatureItem>
             <ButtonLink href={oxfordHubPhoneSupportForm} target="_blank">
-              <HeaderButton>Register for phone check-ins</HeaderButton>
+              <HeaderButton tabIndex="-1">Register for phone check-ins</HeaderButton>
             </ButtonLink>
           </FeatureItem>
           <FeatureItem>
             <ButtonLink href={oxfordHubPracticalSupportForm} target="_blank">
-              <HeaderButton>Get practical support</HeaderButton>
+              <HeaderButton tabIndex="-1">Get practical support</HeaderButton>
             </ButtonLink>
           </FeatureItem>
           <FeatureItem>
@@ -83,7 +83,7 @@ export default Features
 
 const StyledContainer = styled(Container)``
 
-const SectionTitle = styled.h3`
+const SectionTitle = styled.h4`
   color: ${props => props.theme.color.primary};
   display: flex;
   justify-content: center;
@@ -91,7 +91,7 @@ const SectionTitle = styled.h3`
   text-align: center;
 `
 
-const Subtitle = styled.h5`
+const Subtitle = styled.h3`
   font-size: 16px;
   color: ${props => props.theme.color.accent};
   letter-spacing: 0px;
@@ -134,7 +134,7 @@ const FeatureTextWrapper = styled.div`
 `
 
 const JustifiedTextWrapper = styled(FeatureTextWrapper)`
-  text-align: justify;
+  text-align: left;
 `
 
 const FeatureText = styled.p`
