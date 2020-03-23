@@ -53,7 +53,9 @@ const Features = () => (
         <FeaturesGrid id="support-forms">
           <FeatureItem>
             <ButtonLink href={oxfordHubPhoneSupportForm} target="_blank">
-              <HeaderButton tabIndex="-1">Register for phone check-ins</HeaderButton>
+              <HeaderButton tabIndex="-1">
+                Register for phone check-ins
+              </HeaderButton>
             </ButtonLink>
           </FeatureItem>
           <FeatureItem>
@@ -69,9 +71,9 @@ const Features = () => (
         </FeaturesGrid>
         <FeatureTextWrapper>
           <FeatureText>
-            If you would like to request support over the phone rather than on
-            an online form, then please ring 07957 105129 between 9am-5pm
-            Monday-Friday
+            If you are not able to use the online request form, you can request
+            support over the phone, then please ring 07957 105129 between
+            9am-5pm Monday-Friday.
           </FeatureText>
         </FeatureTextWrapper>
       </StyledContainer>
