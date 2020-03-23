@@ -17,8 +17,9 @@ import {
 } from "./style"
 
 const NAV_ITEMS = [
-  { title: "About", sectionId: "intro" },
-  { title: "Get involved", sectionId: "get-involved" },
+  { title: "About", sectionId: "intro", pageURL: "/" },
+  { title: "Get involved", sectionId: "get-involved", pageURL: "/" },
+  { title: "FAQs", sectionId: null, pageURL: "/faq" },
 ]
 
 export default class Navigation extends Component {
@@ -51,11 +52,21 @@ export default class Navigation extends Component {
     }
   }
 
-  getNavAnchorLink = item => (
-    <AnchorLink href={`#${item.sectionId}`} onClick={this.closeMobileMenu}>
-      {item.title}
-    </AnchorLink>
-  )
+  getNavAnchorLink = item => {
+    if (item.sectionId) {
+      return (
+        <AnchorLink href={`#${item.sectionId}`} onClick={this.closeMobileMenu}>
+          {item.title}
+        </AnchorLink>
+      )
+    } else {
+      return (
+        <Link to={`${item.pageURL}`} onClick={this.closeMobileMenu}>
+          {item.title}
+        </Link>
+      )
+    }
+  }
 
   getNavList = ({ mobile = false }) => (
     <NavListWrapper mobile={mobile}>
@@ -65,10 +76,8 @@ export default class Navigation extends Component {
         mobile={mobile}
         offset={-64}
       >
-        {NAV_ITEMS.map(navItem => (
-          <NavItem key={navItem.sectionId}>
-            {this.getNavAnchorLink(navItem)}
-          </NavItem>
+        {NAV_ITEMS.map((navItem, id) => (
+          <NavItem key={`nav_${id}`}>{this.getNavAnchorLink(navItem)}</NavItem>
         ))}
       </Scrollspy>
     </NavListWrapper>
@@ -90,15 +99,17 @@ export default class Navigation extends Component {
             <button
               onClick={this.toggleMobileMenu}
               style={{
-                color: "black", background: "none", display: "flex",
-                alignItems: "center"
+                color: "black",
+                background: "none",
+                display: "flex",
+                alignItems: "center",
               }}
             >
               {this.state.mobileMenuOpen ? (
                 <X size={24} alt="close menu" />
               ) : (
-                  <Menu size={24} alt="open menu" style={{ marginRight: 5 }} />
-                )}
+                <Menu size={24} alt="open menu" style={{ marginRight: 5 }} />
+              )}
               <span>Menu</span>
             </button>
           </Mobile>
