@@ -10,6 +10,8 @@ import {
   FormSubtitle,
 } from "../helpers/header"
 
+import { oxfordHubPracticalSupportForm } from "../../constants"
+
 import { Section, Container } from "../global"
 
 const PostcodeLookup = () => {
@@ -56,6 +58,16 @@ const PostcodeLookup = () => {
       <Section>
         <StyledContainer>
           <h1>Find your neighbourhood contact</h1>
+
+          <p>
+            Use this search tool to contact your local street champion. Our
+            street champion network are a team of individuals working to build
+            community networks. They are acting as individuals rather than
+            supervised by the Oxford Hub team. They have not all necessarily
+            been DBS checked. If you are looking for support for a vulnerable
+            adult and need a DBS checked, supervised volunteer, then you can
+            find that <a href={oxfordHubPracticalSupportForm}>here</a>.
+          </p>
 
           <HeaderForm onSubmit={handleClick}>
             <HeaderInput
