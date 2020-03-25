@@ -20,6 +20,7 @@ const NAV_ITEMS = [
   { title: "About", sectionId: "intro", pageURL: "/" },
   { title: "Get involved", sectionId: "get-involved", pageURL: "/" },
   { title: "FAQs", sectionId: null, pageURL: "/faq" },
+  { title: "Support", sectionId: null, pageURL: "/referral-options" },
 ]
 
 export default class Navigation extends Component {
