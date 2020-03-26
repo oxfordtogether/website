@@ -20,3 +20,6 @@ export const oxfordHubCommunityPartnersForm =
 export const oxfordHubPracticalSupportForm =
   "https://docs.google.com/forms/d/e/1FAIpQLSfzyoIGvaTj25AuN6rhhjfG5PAw8wzZo_a6Wr4S_CrAAago_w/viewform"
 // export const oxfordHubPracticalSupportForm = "https://docs.google.com/forms/d/e/1FAIpQLSdR_Rot_eDoRpWgWUSe8xDUEY6uNf-3rHoqURCQfYxC4Kztmg/viewform"
+
+export const foodInfoDoc =
+  "https://docs.google.com/document/d/1PQdt1C4RmMh1-Iy_7HroiRpyZpLwf_ULkIHKvwedbOw/edit#heading=h.tyb8ttmooitv"
