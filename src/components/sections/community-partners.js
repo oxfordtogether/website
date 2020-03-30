@@ -20,8 +20,8 @@ const Features = () => (
           Oxford Together is coordinated by the{" "}
           <a href="https://oxfordhub.org">Oxford Hub</a>, working in
           collaboration with many local groups, including the City Council,{" "}
-          <a href={mutualAidFacebook}>Oxford Mutual Aid</a>, the Oxford Labour
-          Party, and the Oxford Code Lab.
+          <a href={mutualAidFacebook}>Oxford Mutual Aid</a>, and the Oxford Code
+          Lab.
         </p>
         <p>
           Are you an organisation or charity in the Oxford area? How are you
