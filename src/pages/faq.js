@@ -81,6 +81,10 @@ const faqs = [
     question: `Where can I get food for myself or others?`,
     answer: `<p>You can view information about all the options for accessing food through Oxford Together <a href=${foodInfoDoc} target="_blank">here</a>.</p>`,
   },
+  {
+    question: `How does volunteering work while we're under lockdown?`,
+    answer: `<p>People can go out to volunteer if they’re providing help to vulnerable people, or if their volunteering cannot be done from home. If you are leaving the house to volunteer, this should be done following <a href="https://www.gov.uk/government/publications/full-guidance-on-staying-at-home-and-away-from-others/full-guidance-on-staying-at-home-and-away-from-others">government advice</a>. Just remember to minimise the number of times you leave your house as much as possible (for example, if you're doing shopping for a neighbour, do your own shopping at the same time to reduce the overall number of trips), and wash your hands thoroughly before and after volunteering.</p>`,
+  },
 ]
 
 const renderFAQ = (faq, i) => {
