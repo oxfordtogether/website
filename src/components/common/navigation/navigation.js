@@ -79,6 +79,11 @@ export default class Navigation extends Component {
         {NAV_ITEMS.map((navItem, id) => (
           <NavItem key={`nav_${id}`}>{this.getNavAnchorLink(navItem)}</NavItem>
         ))}
+        <NavItem>
+          <a href="https://bit.ly/oxtogether" target="_blank">
+            Donate
+          </a>
+        </NavItem>
       </Scrollspy>
     </NavListWrapper>
   )

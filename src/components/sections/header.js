@@ -52,6 +52,9 @@ const Header = () => {
               <ButtonLink href={oxfordHubVolunteerForm} target="_blank">
                 <HeaderButton tabIndex="-1">Give support</HeaderButton>
               </ButtonLink>
+              <ButtonLink href="https://bit.ly/oxtogether" target="_blank">
+                <HeaderButton tabIndex="-1">Donate!</HeaderButton>
+              </ButtonLink>
             </HeaderFormDiv>
             <FormSubtitle>
               Or scroll down for other ways to get involved{" "}
@@ -78,4 +81,10 @@ const StyledImage = styled(Img)`
     width: 300px;
     display: none;
   }
+`
+
+const Banner = styled.div`
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 10px;
 `
