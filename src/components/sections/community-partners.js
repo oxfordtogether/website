@@ -52,7 +52,7 @@ const SectionTitle = styled.h3`
   text-align: center;
 `
 
-const Subtitle = styled.h5`
+export const Subtitle = styled.h5`
   font-size: 16px;
   color: ${props => props.theme.color.accent};
   letter-spacing: 0px;
