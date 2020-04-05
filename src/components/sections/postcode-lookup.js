@@ -2,12 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import { Map, TileLayer, GeoJSON, Marker, Popup } from "react-leaflet"
-// import "leaflet/dist/leaflet.css"
 import { HeaderForm, HeaderInput, HeaderButton } from "../helpers/header"
-// import { Subtitle } from "./community-partners"
-
 import { oxfordHubPracticalSupportForm } from "../../constants"
-
 import { Section, Container } from "../global"
 
 const PostcodeLookup = () => {
@@ -90,7 +86,7 @@ const PostcodeLookup = () => {
     if (!inputValue) return
     const formatted = formatString(inputValue)
     const match = rawData.allNeighbourhoodsWithPostcodesCsv.nodes.find(n =>
-      n.Postcodes.includes(formatted)
+      JSON.parse(n.Postcodes.replace(/\'/g, '"')).includes(formatted)
     )
     setNeighbourhood(match)
 
@@ -112,6 +108,59 @@ const PostcodeLookup = () => {
     setPostcode(null)
     setInputValue("")
     setStreet(null)
+  }
+
+  const renderHeaderAndText = () => {
+    return (
+      <>
+        <h1>Find your neighbourhood contact</h1>
+        <p>
+          Use this search tool to contact your nearest street champion movement
+          to ask for support or volunteer your time. Our street champion network
+          are teams of individuals working to support people in need in their
+          neighbourhoods. They are acting as individuals rather than supervised
+          by the Oxford Hub team. If you are looking for support for a
+          vulnerable adult and need a DBS checked, supervised volunteer, please
+          click <a href={oxfordHubPracticalSupportForm}>here</a>..
+        </p>
+        <p>
+          Enter a postcode in the search box or click on a neighbourhood on the
+          map.
+        </p>
+      </>
+    )
+  }
+
+  const renderSearch = () => {
+    return (
+      <HeaderForm onSubmit={handleClick}>
+        <HeaderInput
+          type="text"
+          value={inputValue}
+          placeholder="Your postcode"
+          onChange={handleChange}
+        />
+        <HeaderButton onClick={handleClick}>Search</HeaderButton>
+        &nbsp; &nbsp; &nbsp;
+        <HeaderButton onClick={handleResetClick}>Reset</HeaderButton>
+      </HeaderForm>
+    )
+  }
+
+  const renderMap = () => {
+    return (
+      <MapContainer>
+        <Map {...mapFocus}>
+          <TileLayer
+            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {!!mapFocus.center && renderNeighbourhoodPolygons()}
+          {!mapFocus.center && renderStreetPolygons()}
+          {postcode && renderPostcodeMarker()}
+        </Map>
+      </MapContainer>
+    )
   }
 
   const renderNeighbourhoodPolygons = randomId => {
@@ -265,33 +314,12 @@ const PostcodeLookup = () => {
               )}
             </div>
           )}
-
-          {/* {streets.map((s, index) => (
-            <StreetInfo
-              highlight={street && s.Street === street.name}
-              key={index}
-            >
-              {s.Street}
-              {s.Email && (
-                <div>
-                  Email:&nbsp;
-                  <a href={`mailto:${s.Email}`}>{s.Email}</a>
-                </div>
-              )}
-              {s.Phone && (
-                <div>
-                  Phone:&nbsp;
-                  <a href={`mailto:${s.Phone}`}>{s.Phone}</a>
-                </div>
-              )}
-            </StreetInfo>
-          ))} */}
         </Info>
       )
     } else if (postcode && !neighbourhood) {
       return <Info>The postcode you entered has not been found.</Info>
     } else {
-      return <div></div>
+      return <div />
     }
   }
 
@@ -309,7 +337,7 @@ const PostcodeLookup = () => {
         </Marker>
       )
     } else {
-      return <div></div>
+      return <div />
     }
   }
 
@@ -317,70 +345,33 @@ const PostcodeLookup = () => {
     return (
       <Section>
         <StyledContainer>
-          <h1>Find your neighbourhood contact</h1>
-
-          <p>
-            Use this search tool to contact your nearest street champion
-            movement to ask for support or volunteer your time. Our street
-            champion network are teams of individuals working to support people
-            in need in their neighbourhoods. They are acting as individuals
-            rather than supervised by the Oxford Hub team. If you are looking
-            for support for a vulnerable adult and need a DBS checked,
-            supervised volunteer, please click{" "}
-            <a href={oxfordHubPracticalSupportForm}>here</a>..
-          </p>
-
-          <p>
-            Enter a postcode in the search box or click on a neighbourhood on
-            the map.
-          </p>
-
-          <HeaderForm onSubmit={handleClick}>
-            <HeaderInput
-              type="text"
-              value={inputValue}
-              placeholder="Your postcode"
-              onChange={handleChange}
-            />
-            <HeaderButton onClick={handleClick}>Search</HeaderButton>
-            &nbsp; &nbsp; &nbsp;
-            <HeaderButton onClick={handleResetClick}>Reset</HeaderButton>
-          </HeaderForm>
+          {renderHeaderAndText()}
+          {renderSearch()}
 
           <Flex>
-            <MapContainer>
-              <Map {...mapFocus}>
-                <TileLayer
-                  attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                {!!mapFocus.center && renderNeighbourhoodPolygons()}
-                {!mapFocus.center && renderStreetPolygons()}
-                {postcode && renderPostcodeMarker()}
-              </Map>
-            </MapContainer>
+            {renderMap()}
             {renderInfo()}
           </Flex>
         </StyledContainer>
       </Section>
     )
   } else {
-    return <div></div>
+    return <div />
   }
 }
 
 export default PostcodeLookup
 
-export const StreetInfo = styled.div`
+const StreetInfo = styled.div`
   color: ${props => (props.highlight ? "red" : "black")};
 `
 
-export const Bold = styled.span`
+const Bold = styled.span`
   font-weight: bolder;
   text-decoration: underline;
 `
 
-export const Subtitle = styled.h5`
+const Subtitle = styled.h5`
   font-size: 16px;
   color: ${props => props.theme.color.accent};
   letter-spacing: 0px;
@@ -408,7 +399,6 @@ const Flex = styled.div`
 const MapContainer = styled.div`
   flex: 1;
 
-  // required
   .leaflet-container {
     height: 600px;
   }
