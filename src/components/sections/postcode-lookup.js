@@ -1,14 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
-import { Map, TileLayer, GeoJSON } from "react-leaflet"
-import "leaflet/dist/leaflet.css"
-import {
-  HeaderForm,
-  HeaderInput,
-  HeaderButton,
-  FormSubtitle,
-} from "../helpers/header"
+import { Map, TileLayer, GeoJSON, Marker, Popup } from "react-leaflet"
+// import "leaflet/dist/leaflet.css"
+import { HeaderForm, HeaderInput, HeaderButton } from "../helpers/header"
 // import { Subtitle } from "./community-partners"
 
 import { oxfordHubPracticalSupportForm } from "../../constants"
@@ -36,10 +31,15 @@ const PostcodeLookup = () => {
           Email
         }
       }
+      allPostcodesLongLatCsv {
+        nodes {
+          Postcode
+          Longitude
+          Latitude
+        }
+      }
     }
   `)
-
-  console.log(rawData)
 
   const dataLookup = rawData.allNeighbourhoodsWithPostcodesCsv.nodes.reduce(
     (result, item) => {
@@ -76,9 +76,9 @@ const PostcodeLookup = () => {
   }
 
   const handleChange = event => {
-    console.log(event)
     setPostcode(null)
     setNeighbourhood(null)
+    setStreet(null)
     setInputValue(event.target.value)
     setMapFocus(defaultMapFocus)
   }
@@ -114,26 +114,28 @@ const PostcodeLookup = () => {
     setStreet(null)
   }
 
-  // console.log(leafletElement)
-
-  const renderNeighbourhoodPolygons = () => {
+  const renderNeighbourhoodPolygons = randomId => {
     return (
       <GeoJSON
-        key="neighbourhood-polygons"
+        key={randomId}
         data={polygons}
         onEachFeature={function(feature, layer) {
           layer.on("mouseover", function() {
-            layer.bindTooltip(feature.name, {
-              class: "neighbourhood-tooltip",
-            })
-            this.setStyle({
-              fillOpacity: 0.5,
-            })
+            if (!neighbourhood) {
+              layer.bindTooltip(feature.name, {
+                class: "neighbourhood-tooltip",
+              })
+              this.setStyle({
+                fillOpacity: 0.5,
+              })
+            }
           })
           layer.on("mouseout", function() {
-            this.setStyle({
-              fillOpacity: 0.3,
-            })
+            if (!neighbourhood) {
+              this.setStyle({
+                fillOpacity: 0.3,
+              })
+            }
           })
           layer.on("click", function() {
             const match = rawData.allNeighbourhoodsWithPostcodesCsv.nodes.find(
@@ -150,9 +152,9 @@ const PostcodeLookup = () => {
         style={{
           fillColor: "#075F5F",
           weight: 2,
-          opacity: 1,
+          opacity: 1.0,
           color: "#075F5F",
-          fillOpacity: 0.3,
+          fillOpacity: !!neighbourhood ? 0 : 0.3,
         }}
       />
     )
@@ -162,10 +164,9 @@ const PostcodeLookup = () => {
     const streets = rawData.allNeighbourhoodsWithStreetsCsv.nodes.filter(
       d => d.Neighbourhood === neighbourhood.Name
     )
-
     let polygons
     if (streets.length === 0) {
-      polygons = dataLookup[neighbourhood.Name].polygon
+      polygons = []
     } else {
       polygons = streets.map(d => {
         return {
@@ -176,59 +177,49 @@ const PostcodeLookup = () => {
         }
       })
     }
+    const neighbourhoodPolygon = dataLookup[neighbourhood.Name].polygon
 
     return (
-      <GeoJSON
-        key="street-polygons"
-        data={polygons}
-        onEachFeature={function(feature, layer) {
-          // layer.on("mouseover", function() {
-          //   console.log(feature)
-          //   this.setStyle({
-          //     fillOpacity: 0.7,
-          //   })
-          //   setStreet(feature)
-          // })
-          // layer.on("mouseout", function() {
-          //   this.setStyle({
-          //     fillOpacity: 0.5,
-          //   })
-          //   setStreet(null)
-          // })
-          layer.on("click", function() {
-            // if (street)
-            //   this.setStyle({
-
-            //   })
-
-            // this.setStyle({
-            //   fillOpacity: street && feature.name == street.name ? 0.7 : 0.5,
-            // })
-            setStreet(feature)
-          })
-        }}
-        style={{
-          fillColor: "#4a708b",
-          weight: 2,
-          opacity: 1,
-          color: "#4a708b",
-          fillOpacity: 0.5,
-        }}
-      />
+      <>
+        <GeoJSON
+          key="neighbourhood-polygon"
+          data={neighbourhoodPolygon}
+          style={{
+            fillOpacity: streets.length !== 0 ? 0 : 0.3,
+            weight: 2,
+            opacity: 1,
+            color: "#075F5F",
+          }}
+        />
+        <GeoJSON
+          key="street-polygons"
+          data={polygons}
+          onEachFeature={function(feature, layer) {
+            layer.on("click", function() {
+              setStreet(feature)
+            })
+          }}
+          style={{
+            fillColor: "#0c297e",
+            weight: 2,
+            opacity: 1,
+            color: "#0c297e",
+            fillOpacity: 0.5,
+          }}
+        />
+      </>
     )
   }
 
   const renderInfo = () => {
     if (neighbourhood) {
-      console.log(rawData)
       const streets = rawData.allNeighbourhoodsWithStreetsCsv.nodes.filter(
         d => d.Neighbourhood === neighbourhood.Name
       )
-      console.log(streets)
       return (
         <Info>
           <p>
-           You are in <Bold>{neighbourhood.Name}</Bold> neighbourhood. The
+            You are in <Bold>{neighbourhood.Name}</Bold> neighbourhood. The
             contact email for your neighbourhood is:{" "}
             <a href={`mailto:${neighbourhood.Contact_Email}`}>
               {neighbourhood.Contact_Email}
@@ -304,50 +295,78 @@ const PostcodeLookup = () => {
     }
   }
 
-  return (
-    <Section>
-      <StyledContainer>
-        <h1>Find your neighbourhood contact</h1>
+  const renderPostcodeMarker = () => {
+    const match = rawData.allPostcodesLongLatCsv.nodes.find(d => {
+      return formatString(d.Postcode) === formatString(postcode)
+    })
+    if (match) {
+      return (
+        <Marker
+          stye={{ color: "red" }}
+          position={[parseFloat(match.Latitude), parseFloat(match.Longitude)]}
+        >
+          <Popup>{postcode}</Popup>
+        </Marker>
+      )
+    } else {
+      return <div></div>
+    }
+  }
 
-        <p>
-Use this search tool to contact your nearest street champion movement to ask for support or volunteer your time. Our street champion network are teams of individuals working to support people in need in their neighbourhoods. They are acting as individuals rather than supervised by the Oxford Hub team. If you are looking for support for a vulnerable adult and need a DBS checked, supervised volunteer, please click{" "}<a href={oxfordHubPracticalSupportForm}>here</a>..
-        </p>
+  if (typeof window !== "undefined") {
+    return (
+      <Section>
+        <StyledContainer>
+          <h1>Find your neighbourhood contact</h1>
 
-        <p>
-          Enter a postcode in the search box or click on a neighbourhood on the
-          map.
-        </p>
+          <p>
+            Use this search tool to contact your nearest street champion
+            movement to ask for support or volunteer your time. Our street
+            champion network are teams of individuals working to support people
+            in need in their neighbourhoods. They are acting as individuals
+            rather than supervised by the Oxford Hub team. If you are looking
+            for support for a vulnerable adult and need a DBS checked,
+            supervised volunteer, please click{" "}
+            <a href={oxfordHubPracticalSupportForm}>here</a>..
+          </p>
 
-        <HeaderForm onSubmit={handleClick}>
-          <HeaderInput
-            type="text"
-            value={inputValue}
-            placeholder="Your postcode"
-            onChange={handleChange}
-          />
-          <HeaderButton onClick={handleClick}>Search</HeaderButton>
-          &nbsp; &nbsp; &nbsp;
-          <HeaderButton onClick={handleResetClick}>Reset</HeaderButton>
-        </HeaderForm>
+          <p>
+            Enter a postcode in the search box or click on a neighbourhood on
+            the map.
+          </p>
 
-        <Flex>
-          <MapContainer>
-            <Map {...mapFocus}>
-              <TileLayer
-                attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
+          <HeaderForm onSubmit={handleClick}>
+            <HeaderInput
+              type="text"
+              value={inputValue}
+              placeholder="Your postcode"
+              onChange={handleChange}
+            />
+            <HeaderButton onClick={handleClick}>Search</HeaderButton>
+            &nbsp; &nbsp; &nbsp;
+            <HeaderButton onClick={handleResetClick}>Reset</HeaderButton>
+          </HeaderForm>
 
-              {!!mapFocus.center
-                ? renderNeighbourhoodPolygons()
-                : renderStreetPolygons()}
-            </Map>
-          </MapContainer>
-          {renderInfo()}
-        </Flex>
-      </StyledContainer>
-    </Section>
-  )
+          <Flex>
+            <MapContainer>
+              <Map {...mapFocus}>
+                <TileLayer
+                  attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                {!!mapFocus.center && renderNeighbourhoodPolygons()}
+                {!mapFocus.center && renderStreetPolygons()}
+                {postcode && renderPostcodeMarker()}
+              </Map>
+            </MapContainer>
+            {renderInfo()}
+          </Flex>
+        </StyledContainer>
+      </Section>
+    )
+  } else {
+    return <div></div>
+  }
 }
 
 export default PostcodeLookup
@@ -380,6 +399,10 @@ const StyledContainer = styled(Container)`
 
 const Flex = styled.div`
   display: flex;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap-reverse;
+  }
 `
 
 const MapContainer = styled.div`
@@ -392,16 +415,8 @@ const MapContainer = styled.div`
 
   max-width: 50%;
   min-width: 50%;
-
-  // // tooltip style
-  // .neighbourhood-tooltip {
-  //   background: green;
-  //   border: 2px solid cyan;
-  // }
-  // .leaflet-popup {
-  //   display: none;
-  // }
-  // .leaflet-popup-tip-container {
-  //   display: none;
-  // }
+  @media (max-width: 768px) {
+    max-width: 100%;
+    min-width: 100%;
+  }
 `
