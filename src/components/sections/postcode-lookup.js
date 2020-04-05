@@ -60,13 +60,14 @@ const PostcodeLookup = () => {
           <h1>Find your neighbourhood contact</h1>
 
           <p>
-            Use this search tool to contact your local street champion. Our
-            street champion network are a team of individuals working to build
-            community networks. They are acting as individuals rather than
-            supervised by the Oxford Hub team. They have not all necessarily
-            been DBS checked. If you are looking for support for a vulnerable
-            adult and need a DBS checked, supervised volunteer, then you can
-            find that <a href={oxfordHubPracticalSupportForm}>here</a>.
+            Use this search tool to contact your nearest street champion
+            movement to ask for support or volunteer your time. Our street
+            champion network are teams of individuals working to support people
+            in need in their neighbourhoods. They are acting as individuals
+            rather than supervised by the Oxford Hub team. If you are looking
+            for support for a vulnerable adult and need a DBS checked,
+            supervised volunteer, please click{" "}
+            <a href={oxfordHubPracticalSupportForm}>here</a>.
           </p>
 
           <HeaderForm onSubmit={handleClick}>
