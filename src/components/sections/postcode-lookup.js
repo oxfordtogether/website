@@ -362,10 +362,6 @@ const PostcodeLookup = () => {
 
 export default PostcodeLookup
 
-const StreetInfo = styled.div`
-  color: ${props => (props.highlight ? "red" : "black")};
-`
-
 const Bold = styled.span`
   font-weight: bolder;
   text-decoration: underline;
