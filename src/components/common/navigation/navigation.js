@@ -54,11 +54,19 @@ export default class Navigation extends Component {
 
   getNavAnchorLink = item => {
     if (item.sectionId) {
-      return (
-        <AnchorLink href={`#${item.sectionId}`} onClick={this.closeMobileMenu}>
-          {item.title}
-        </AnchorLink>
-      )
+      if (window.location.href == item.pageURL) {
+        return (
+          <AnchorLink href={`#${item.sectionId}`} onClick={this.closeMobileMenu}>
+            {item.title}
+          </AnchorLink>
+        )
+      } else {
+        return (
+          <Link to={`${item.pageURL}#${item.sectionId}`} onClick={this.closeMobileMenu}>
+            {item.title}
+          </Link>
+        )
+      }
     } else {
       return (
         <Link to={`${item.pageURL}`} onClick={this.closeMobileMenu}>
