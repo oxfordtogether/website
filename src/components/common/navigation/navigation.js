@@ -22,6 +22,8 @@ const NAV_ITEMS = [
   { title: "FAQs", sectionId: null, pageURL: "/faq" },
 ]
 
+const URL = typeof window !== 'undefined' ? window.location.href : '';
+
 export default class Navigation extends Component {
   state = {
     mobileMenuOpen: false,
@@ -54,7 +56,7 @@ export default class Navigation extends Component {
 
   getNavAnchorLink = item => {
     if (item.sectionId) {
-      if (window.location.href == item.pageURL) {
+      if (URL === item.pageURL) {
         return (
           <AnchorLink href={`#${item.sectionId}`} onClick={this.closeMobileMenu}>
             {item.title}
