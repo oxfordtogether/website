@@ -115,13 +115,18 @@ const PostcodeLookup = () => {
       <>
         <h1>Find your neighbourhood contact</h1>
         <p>
-          Use this search tool to contact your nearest street champion movement
-          to ask for support or volunteer your time. Our street champion network
-          are teams of individuals working to support people in need in their
+          This search tool is for individuals who are looking for support or
+          looking to volunteer their time. Our street champion network are teams
+          of individuals working to support people in need in their
           neighbourhoods. They are acting as individuals rather than supervised
-          by the Oxford Hub team. If you are looking for support for a
-          vulnerable adult and need a DBS checked, supervised volunteer, please
-          click <a href={oxfordHubPracticalSupportForm}>here</a>..
+          by the Oxford Hub team. To find your neighbourhood contact, enter a
+          postcode in the search box or click on a neighbourhood on the map.
+        </p>
+        <p>
+          If you are an organisation looking to arrange volunteer support for a
+          vulnerable adult, or need a DBS checked, supervised volunteer, please
+          fill out the form <a href={oxfordHubPracticalSupportForm}>here</a>
+          to make a referral.
         </p>
         <p>
           Enter a postcode in the search box or click on a neighbourhood on the
