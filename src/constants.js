@@ -18,7 +18,7 @@ export const oxfordHubCommunityPartnersForm =
   "https://docs.google.com/forms/d/1crUT-En_d6e2ciKG3B1AEB3MiMD0u1mVQQFbU04eJ5U/viewform"
 
 export const oxfordHubPracticalSupportForm =
-  "https://docs.google.com/forms/d/e/1FAIpQLSfzyoIGvaTj25AuN6rhhjfG5PAw8wzZo_a6Wr4S_CrAAago_w/viewform"
+  "https://forms.oxfordtogether.org/support-form"
 // export const oxfordHubPracticalSupportForm = "https://docs.google.com/forms/d/e/1FAIpQLSdR_Rot_eDoRpWgWUSe8xDUEY6uNf-3rHoqURCQfYxC4Kztmg/viewform"
 
 export const foodInfoDoc =
