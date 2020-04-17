@@ -75,6 +75,14 @@ const Features = () => (
             support over the phone, then please ring 07957 105129 between
             9am-5pm Monday-Friday.
           </FeatureText>
+          <FeatureText>
+            Looking for support outside Oxford City? You can find your nearest
+            community support group{" "}
+            <a href="https://www.oxfordshireallin.org/" target="_blank">
+              here
+            </a>
+            .
+          </FeatureText>
         </FeatureTextWrapper>
       </StyledContainer>
     </Section>
