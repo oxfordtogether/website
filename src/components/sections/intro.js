@@ -59,7 +59,7 @@ const Features = () => (
             </ButtonLink>
           </FeatureItem>
           <FeatureItem>
-            <ButtonLink href={oxfordHubPracticalSupportForm} target="_blank">
+            <ButtonLink href="./referral-options" target="_blank">
               <HeaderButton tabIndex="-1">Get practical support</HeaderButton>
             </ButtonLink>
           </FeatureItem>

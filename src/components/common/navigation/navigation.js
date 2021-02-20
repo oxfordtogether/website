@@ -17,9 +17,10 @@ import {
 } from "./style"
 
 const NAV_ITEMS = [
-  { title: "About", sectionId: "intro", pageURL: "/" },
-  { title: "Get involved", sectionId: "get-involved", pageURL: "/" },
-  { title: "FAQs", sectionId: null, pageURL: "/faq" },
+  { title: "About", sectionId: "intro", pageURL: "" },
+  { title: "Get involved", sectionId: "get-involved", pageURL: "" },
+  { title: "FAQs", sectionId: null, pageURL: "faq" },
+  { title: "Support", sectionId: null, pageURL: "referral-options" },
 ]
 
 export default class Navigation extends Component {
@@ -53,7 +54,9 @@ export default class Navigation extends Component {
   }
 
   getNavAnchorLink = item => {
-    if (item.sectionId) {
+    const url = typeof window !== "undefined" ? window.location.href : ""
+
+    if (item.sectionId | (item.pageURL === url.split("/").pop())) {
       return (
         <AnchorLink href={`#${item.sectionId}`} onClick={this.closeMobileMenu}>
           {item.title}
