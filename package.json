@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "tom@oxfordtogether.com",
   "dependencies": {
-    "gatsby": "^2.15.31",
+    "gatsby": "^4.25.7",
     "gatsby-image": "^2.2.24",
     "gatsby-plugin-google-analytics": "^2.1.37",
     "gatsby-plugin-manifest": "^2.2.20",
